@@ -7,16 +7,8 @@ email  : juancesarandrianto@gmail.com
 ==============================================================================================
 */
 require __DIR__ . '/../vendor/autoload.php';
-
-$app = new Slim\App(
-    [
-        'settings' => [
-            'displayErrorDetails' => true
-        ]
-    ]
-);
-$log = new Monolog\Logger('name');
-$log->pushHandler(new Monolog\Handler\StreamHandler('app.log', Monolog\Logger::WARNING));
+$config = require('config/app.php');
+$app = new Slim\App($config);
 $dotenv = new Dotenv\Dotenv( __DIR__ .'/../');
 $dotenv->load();
 // Fetch DI Container
