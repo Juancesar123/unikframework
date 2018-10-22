@@ -8,7 +8,10 @@ class Router
   private $request;
   private $supportedHttpMethods = array(
     "GET",
-    "POST"
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE"
   );
   function __construct(IRequest $request)
   {
@@ -52,8 +55,7 @@ class Router
     $methodDictionary = $this->{strtolower($this->request->requestMethod)};
     $formatedRoute = $this->formatRoute($this->request->requestUri);
     $method = $methodDictionary[$formatedRoute];
-    if(is_null($method))
-    {
+    if(is_null($method)){
       $this->defaultRequestHandler();
       return;
     }

@@ -45,7 +45,6 @@ class Request implements IRequest
       }
       return $result;
     }
-    
     return $body;
   }
 }
