@@ -25,7 +25,7 @@ $container = $app->getContainer();
 // Register Twig View helper
 $container['view'] = function ($c) {
     $view = new \Slim\Views\Twig(__DIR__.'/../views', [
-        'cache' => __DIR__.'/../storage/framework/cache'
+        'cache' => false
     ]);
     
     // Instantiate and add Slim specific extension
